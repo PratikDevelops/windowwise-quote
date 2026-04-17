@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, useEffect } from "react";
-import { Filter } from "lucide-react";
+import { Filter, ChevronDown } from "lucide-react";
 import { products, COLOR_SWATCHES, type WindowType } from "@/data/products";
 import { ProductCard, ProductCardSkeleton } from "@/components/site/ProductCard";
 import { cn } from "@/lib/utils";
@@ -60,22 +60,36 @@ function ProductsPage() {
     [type, color, price],
   );
 
+  const [filtersOpen, setFiltersOpen] = useState(false);
+
   return (
     <>
-      <section className="container-x pt-12 pb-10 lg:pt-20 lg:pb-12">
+      <section className="container-x pt-10 pb-8 sm:pt-12 sm:pb-10 lg:pt-20 lg:pb-12">
         <span className="text-xs uppercase tracking-[0.18em] text-brand">Collection</span>
-        <h1 className="mt-2 font-display text-5xl sm:text-6xl">Our windows</h1>
-        <p className="mt-3 max-w-2xl text-muted-foreground">
+        <h1 className="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl">Our windows</h1>
+        <p className="mt-3 max-w-2xl text-sm sm:text-base text-muted-foreground">
           Each system is built to order. Pick a starting point, customize your
           configuration, and we'll send a precise quote.
         </p>
       </section>
 
-      <section className="container-x grid lg:grid-cols-[260px_1fr] gap-10 pb-24">
-        <aside className="space-y-8 lg:sticky lg:top-28 self-start">
-          <div className="flex items-center gap-2 text-sm font-semibold">
+      <section className="container-x grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-10 pb-20 sm:pb-24">
+        <aside className="lg:space-y-8 lg:sticky lg:top-28 self-start">
+          <button
+            type="button"
+            onClick={() => setFiltersOpen((v) => !v)}
+            className="lg:hidden flex items-center justify-between w-full rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold"
+            aria-expanded={filtersOpen}
+          >
+            <span className="flex items-center gap-2">
+              <Filter className="h-4 w-4" /> Filters
+            </span>
+            <ChevronDown className={cn("h-4 w-4 transition-transform", filtersOpen && "rotate-180")} />
+          </button>
+          <div className={cn("hidden lg:block lg:!block items-center gap-2 text-sm font-semibold", "lg:flex")}>
             <Filter className="h-4 w-4" /> Filters
           </div>
+          <div className={cn("space-y-6 sm:space-y-8 mt-4 lg:mt-0", !filtersOpen && "hidden lg:block")}>
 
           <div>
             <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
