@@ -54,14 +54,14 @@ export function Footer() {
           <h4 className="text-sm font-semibold mb-4">Get in touch</h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
-              <Phone className="h-4 w-4 mt-0.5" /> +91 99999 00000
+              <Phone className="h-4 w-4 mt-0.5" /> <span>+91 99999 00000</span>
             </li>
             <li className="flex items-start gap-2">
-              <Mail className="h-4 w-4 mt-0.5" /> hello@luminae.in
+              <Mail className="h-4 w-4 mt-0.5" /> <span>hello@luminae.in</span>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="h-4 w-4 mt-0.5" />
-              224, Industrial Area, Phase 2, Bengaluru 560058
+              <span>224, Industrial Area, Phase 2, Bengaluru 560058</span>
             </li>
           </ul>
         </div>
