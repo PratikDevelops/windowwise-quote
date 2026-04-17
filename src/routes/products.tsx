@@ -163,13 +163,14 @@ function ProductsPage() {
               className="w-full accent-[var(--brand)]"
             />
           </div>
+          </div>
         </aside>
 
         <div>
-          <div className="text-sm text-muted-foreground mb-5">
+          <div className="text-sm text-muted-foreground mb-4 sm:mb-5">
             {loading ? "Loading…" : `${filtered.length} windows`}
           </div>
-          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 sm:gap-6">
             {loading
               ? Array.from({ length: 6 }).map((_, i) => <ProductCardSkeleton key={i} />)
               : filtered.map((p, i) => <ProductCard key={p.slug} product={p} index={i} />)}
