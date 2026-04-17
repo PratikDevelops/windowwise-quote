@@ -74,7 +74,7 @@ function ProductsPage() {
       </section>
 
       <section className="container-x grid lg:grid-cols-[260px_1fr] gap-6 lg:gap-10 pb-20 sm:pb-24">
-        <aside className="lg:space-y-8 lg:sticky lg:top-28 self-start">
+        <aside className="lg:sticky lg:top-28 self-start">
           <button
             type="button"
             onClick={() => setFiltersOpen((v) => !v)}
@@ -86,7 +86,7 @@ function ProductsPage() {
             </span>
             <ChevronDown className={cn("h-4 w-4 transition-transform", filtersOpen && "rotate-180")} />
           </button>
-          <div className={cn("hidden lg:block lg:!block items-center gap-2 text-sm font-semibold", "lg:flex")}>
+          <div className="hidden lg:flex items-center gap-2 text-sm font-semibold mb-6">
             <Filter className="h-4 w-4" /> Filters
           </div>
           <div className={cn("space-y-6 sm:space-y-8 mt-4 lg:mt-0", !filtersOpen && "hidden lg:block")}>
