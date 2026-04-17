@@ -99,8 +99,8 @@ function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="container-x py-20 lg:py-28">
-        <div className="grid lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+      <section className="container-x py-16 sm:py-20 lg:py-28">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
           {[
             {
               icon: Volume2,
@@ -118,23 +118,23 @@ function HomePage() {
               body: "Triple gasket sealing, UV-stable profiles. Engineered for monsoons and coastal winds.",
             },
           ].map((f) => (
-            <div key={f.title} className="bg-card p-8 lg:p-10">
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-brand">
-                <f.icon className="h-6 w-6" />
+            <div key={f.title} className="bg-card p-6 sm:p-8 lg:p-10">
+              <div className="grid h-11 w-11 sm:h-12 sm:w-12 place-items-center rounded-xl bg-brand-soft text-brand">
+                <f.icon className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h3 className="mt-5 font-display text-2xl">{f.title}</h3>
-              <p className="mt-2 text-muted-foreground">{f.body}</p>
+              <h3 className="mt-4 sm:mt-5 font-display text-xl sm:text-2xl">{f.title}</h3>
+              <p className="mt-2 text-sm sm:text-base text-muted-foreground">{f.body}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Categories */}
-      <section className="container-x py-12 lg:py-20">
-        <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
+      <section className="container-x py-12 sm:py-16 lg:py-20">
+        <div className="flex items-end justify-between gap-4 flex-wrap mb-8 sm:mb-10">
           <div>
             <span className="text-xs uppercase tracking-[0.18em] text-brand">Collection</span>
-            <h2 className="mt-2 font-display text-4xl sm:text-5xl">
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl">
               Window systems, made to fit
             </h2>
           </div>
@@ -145,7 +145,7 @@ function HomePage() {
             View all <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {products.slice(0, 3).map((p, i) => (
             <ProductCard key={p.slug} product={p} index={i} />
           ))}
@@ -153,13 +153,13 @@ function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-surface py-20 lg:py-28 mt-12">
+      <section className="bg-surface py-16 sm:py-20 lg:py-28 mt-8 sm:mt-12">
         <div className="container-x">
           <span className="text-xs uppercase tracking-[0.18em] text-brand">Loved by homeowners</span>
-          <h2 className="mt-2 font-display text-4xl sm:text-5xl max-w-2xl">
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl max-w-2xl">
             Quiet rooms. Lower bills. No regrets.
           </h2>
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
+          <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {[
               {
                 quote:
@@ -182,15 +182,15 @@ function HomePage() {
             ].map((t) => (
               <div
                 key={t.name}
-                className="rounded-2xl bg-card border border-border p-7 shadow-soft"
+                className="rounded-2xl bg-card border border-border p-5 sm:p-7 shadow-soft"
               >
                 <div className="flex gap-0.5 text-brand">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
-                <p className="mt-4 text-foreground/90 leading-relaxed">"{t.quote}"</p>
-                <div className="mt-6 pt-5 border-t border-border">
+                <p className="mt-4 text-sm sm:text-base text-foreground/90 leading-relaxed">"{t.quote}"</p>
+                <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-border">
                   <div className="font-medium">{t.name}</div>
                   <div className="text-sm text-muted-foreground">{t.role}</div>
                 </div>
@@ -201,30 +201,30 @@ function HomePage() {
       </section>
 
       {/* Trust strip */}
-      <section className="container-x py-20 lg:py-28">
-        <div className="rounded-3xl bg-ink text-background p-10 lg:p-16 relative overflow-hidden">
+      <section className="container-x py-16 sm:py-20 lg:py-28">
+        <div className="rounded-3xl bg-ink text-background p-7 sm:p-10 lg:p-16 relative overflow-hidden">
           <div className="absolute inset-0 grain opacity-30" />
-          <div className="relative grid lg:grid-cols-2 gap-10 items-center">
+          <div className="relative grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <div>
               <span className="text-xs uppercase tracking-[0.18em] text-background/60">
                 Why Luminae
               </span>
-              <h2 className="mt-2 font-display text-4xl sm:text-5xl text-balance">
+              <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl text-balance">
                 Engineering you can lean on, for a decade and beyond.
               </h2>
-              <p className="mt-4 text-background/70 max-w-lg">
+              <p className="mt-4 text-sm sm:text-base text-background/70 max-w-lg">
                 Every Luminae window is fabricated in our ISO-certified facility,
                 installed by trained technicians, and backed by a comprehensive
                 10-year warranty.
               </p>
               <button
                 onClick={() => openQuote()}
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-background text-foreground px-6 py-3.5 text-sm font-medium hover:-translate-y-0.5 transition-transform"
+                className="mt-6 sm:mt-8 inline-flex items-center gap-2 rounded-full bg-background text-foreground px-6 py-3.5 text-sm font-medium hover:-translate-y-0.5 transition-transform"
               >
                 Get Free Quote <ArrowRight className="h-4 w-4" />
               </button>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {[
                 { icon: ShieldCheck, k: "ISO 9001", v: "Certified facility" },
                 { icon: Award, k: "BIS", v: "Tested profiles" },
@@ -233,11 +233,11 @@ function HomePage() {
               ].map((b) => (
                 <div
                   key={b.k}
-                  className="rounded-2xl border border-background/10 bg-background/5 p-5"
+                  className="rounded-2xl border border-background/10 bg-background/5 p-4 sm:p-5"
                 >
                   <b.icon className="h-5 w-5 text-background/80" />
-                  <div className="mt-3 font-display text-2xl">{b.k}</div>
-                  <div className="text-sm text-background/60">{b.v}</div>
+                  <div className="mt-2 sm:mt-3 font-display text-xl sm:text-2xl">{b.k}</div>
+                  <div className="text-xs sm:text-sm text-background/60">{b.v}</div>
                 </div>
               ))}
             </div>
