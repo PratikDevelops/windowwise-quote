@@ -67,18 +67,18 @@ function HomePage() {
               the noise, hold the weather, and let in only the light you want.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => openQuote()}
+              <Link
+                to="/quote"
                 className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3.5 text-sm font-medium text-brand-foreground shadow-soft hover:shadow-glow hover:-translate-y-0.5 transition-all"
               >
-                Get Free Quote <ArrowRight className="h-4 w-4" />
-              </button>
-              <Link
-                to="/products"
+                Start Guided Quote <ArrowRight className="h-4 w-4" />
+              </Link>
+              <button
+                onClick={() => openQuote()}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 backdrop-blur px-6 py-3.5 text-sm font-medium hover:bg-card transition-colors"
               >
-                Explore windows
-              </Link>
+                Quick quote
+              </button>
             </div>
 
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
