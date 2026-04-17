@@ -50,7 +50,7 @@ function HomePage() {
 
         <div className="container-x relative pt-10 pb-20 sm:pt-16 sm:pb-24 lg:pt-28 lg:pb-40">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="max-w-2xl"
