@@ -39,7 +39,7 @@ export const Route = createFileRoute("/products/$slug")({
 });
 
 function ProductDetail() {
-  const { product } = Route.useLoaderData();
+  const { product } = Route.useLoaderData() as { product: typeof products[number] };
   const { openQuote } = useQuote();
 
   const [width, setWidth] = useState(1200);
