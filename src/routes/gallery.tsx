@@ -44,8 +44,8 @@ function GalleryPage() {
         </p>
       </section>
 
-      <section className="container-x pb-24">
-        <div className="grid grid-cols-2 lg:grid-cols-3 auto-rows-[220px] lg:auto-rows-[280px] gap-4">
+      <section className="container-x pb-20 sm:pb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[200px] sm:auto-rows-[240px] lg:auto-rows-[280px] gap-3 sm:gap-4">
           {items.map((it, i) => (
             <motion.figure
               key={it.title}
