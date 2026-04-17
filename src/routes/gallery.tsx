@@ -35,17 +35,17 @@ const items = [
 function GalleryPage() {
   return (
     <>
-      <section className="container-x pt-12 pb-10 lg:pt-20 lg:pb-12">
+      <section className="container-x pt-10 pb-8 sm:pt-12 sm:pb-10 lg:pt-20 lg:pb-12">
         <span className="text-xs uppercase tracking-[0.18em] text-brand">Projects</span>
-        <h1 className="mt-2 font-display text-5xl sm:text-6xl">Real homes, real installations</h1>
-        <p className="mt-3 max-w-2xl text-muted-foreground">
+        <h1 className="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl">Real homes, real installations</h1>
+        <p className="mt-3 max-w-2xl text-sm sm:text-base text-muted-foreground">
           A small selection of homes we've helped transform. Every install is
           measured, fabricated, and finished in-house.
         </p>
       </section>
 
-      <section className="container-x pb-24">
-        <div className="grid grid-cols-2 lg:grid-cols-3 auto-rows-[220px] lg:auto-rows-[280px] gap-4">
+      <section className="container-x pb-20 sm:pb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[200px] sm:auto-rows-[240px] lg:auto-rows-[280px] gap-3 sm:gap-4">
           {items.map((it, i) => (
             <motion.figure
               key={it.title}

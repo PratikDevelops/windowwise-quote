@@ -65,7 +65,7 @@ function ProductDetail() {
   );
 
   return (
-    <section className="container-x py-10 lg:py-16">
+    <section className="container-x py-8 sm:py-10 lg:py-16">
       <Link
         to="/products"
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
@@ -73,7 +73,7 @@ function ProductDetail() {
         <ArrowLeft className="h-4 w-4" /> Back to collection
       </Link>
 
-      <div className="mt-8 grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16">
+      <div className="mt-6 sm:mt-8 grid lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-16">
         {/* Gallery */}
         <div>
           <motion.div
@@ -90,16 +90,16 @@ function ProductDetail() {
               height={1024}
               className="h-full w-full object-cover"
             />
-            <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-background/90 backdrop-blur px-3 py-1.5 text-xs font-medium">
-              <Sparkles className="h-3.5 w-3.5 text-brand" /> Custom built
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center gap-1.5 rounded-full bg-background/90 backdrop-blur px-2.5 py-1 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-medium">
+              <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-brand" /> Custom built
             </div>
           </motion.div>
-          <div className="mt-4 grid grid-cols-4 gap-3">
+          <div className="mt-3 sm:mt-4 grid grid-cols-4 gap-2 sm:gap-3">
             {[product.image, product.image, product.image, product.image].map((src, i) => (
               <div
                 key={i}
                 className={cn(
-                  "aspect-square rounded-xl overflow-hidden border",
+                  "aspect-square rounded-lg sm:rounded-xl overflow-hidden border",
                   i === 0 ? "border-foreground" : "border-border opacity-60",
                 )}
               >
@@ -114,8 +114,8 @@ function ProductDetail() {
           <span className="text-xs uppercase tracking-[0.18em] text-brand">
             {product.typeLabel}
           </span>
-          <h1 className="mt-2 font-display text-4xl lg:text-5xl">{product.name}</h1>
-          <p className="mt-4 text-muted-foreground">{product.description}</p>
+          <h1 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl">{product.name}</h1>
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground">{product.description}</p>
 
           <div className="mt-6 flex flex-wrap gap-2">
             {product.features.map((f) => (
@@ -174,12 +174,12 @@ function ProductDetail() {
               </div>
             </div>
 
-            <div className="flex items-end justify-between pt-4 border-t border-border">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pt-4 border-t border-border">
               <div>
                 <div className="text-xs uppercase tracking-wider text-muted-foreground">
                   Estimated price
                 </div>
-                <div className="mt-1 font-display text-3xl">
+                <div className="mt-1 font-display text-2xl sm:text-3xl">
                   ₹ {formatINR(estimate)}
                 </div>
                 <div className="text-xs text-muted-foreground mt-0.5">
@@ -198,7 +198,7 @@ function ProductDetail() {
                     estimatedPrice: estimate,
                   })
                 }
-                className="inline-flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-foreground shadow-soft hover:shadow-glow transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-foreground shadow-soft hover:shadow-glow transition-all"
               >
                 Request Quote
               </button>

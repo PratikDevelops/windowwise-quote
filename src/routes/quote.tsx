@@ -115,10 +115,10 @@ function QuoteWizard() {
   if (done) return <DonePanel name={s.name} />;
 
   return (
-    <section className="container-x py-10 lg:py-16">
-      <div className="grid lg:grid-cols-[1fr_360px] gap-10 lg:gap-14 items-start">
+    <section className="container-x py-8 sm:py-10 lg:py-16">
+      <div className="grid lg:grid-cols-[1fr_360px] gap-8 lg:gap-14 items-start">
         {/* Main flow */}
-        <div className="min-h-[520px]">
+        <div className="lg:min-h-[520px] order-2 lg:order-1">
           <Stepper step={step} />
 
           <AnimatePresence mode="wait">
@@ -282,8 +282,10 @@ function QuoteWizard() {
           )}
         </div>
 
-        {/* Live summary */}
-        <SummaryPanel s={s} estimate={estimate} sqft={sqft} />
+        {/* Live summary — appears first on mobile, sidebar on desktop */}
+        <div className="order-1 lg:order-2">
+          <SummaryPanel s={s} estimate={estimate} sqft={sqft} />
+        </div>
       </div>
     </section>
   );

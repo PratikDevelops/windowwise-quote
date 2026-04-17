@@ -31,20 +31,20 @@ function AboutPage() {
   const { openQuote } = useQuote();
   return (
     <>
-      <section className="container-x pt-12 pb-12 lg:pt-20 lg:pb-16 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
+      <section className="container-x pt-10 sm:pt-12 lg:pt-20 pb-12 lg:pb-16 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="order-2 lg:order-1">
           <span className="text-xs uppercase tracking-[0.18em] text-brand">Our story</span>
-          <h1 className="mt-2 font-display text-5xl sm:text-6xl text-balance">
+          <h1 className="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl text-balance">
             Windows are details. We obsess over details.
           </h1>
-          <p className="mt-5 text-muted-foreground text-lg">
+          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-muted-foreground">
             Luminae was started in 2014 by a small team of architects and
             fabricators who couldn't find UPVC windows that matched the homes they
             were designing. So we built our own — with German profiles, Indian
             craftsmanship, and uncompromising tolerances.
           </p>
         </div>
-        <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
+        <div className="order-1 lg:order-2 relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden">
           <img src={projectImg} alt="Modern home with Luminae windows" className="h-full w-full object-cover" />
         </div>
       </section>
