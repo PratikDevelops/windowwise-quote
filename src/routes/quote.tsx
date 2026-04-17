@@ -282,8 +282,10 @@ function QuoteWizard() {
           )}
         </div>
 
-        {/* Live summary */}
-        <SummaryPanel s={s} estimate={estimate} sqft={sqft} />
+        {/* Live summary — appears first on mobile, sidebar on desktop */}
+        <div className="order-1 lg:order-2">
+          <SummaryPanel s={s} estimate={estimate} sqft={sqft} />
+        </div>
       </div>
     </section>
   );
