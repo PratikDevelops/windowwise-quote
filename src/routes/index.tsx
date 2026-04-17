@@ -44,52 +44,53 @@ function HomePage() {
             height={1280}
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+          {/* Stronger left-fade on mobile, softer on desktop for full-bleed feel */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background/40 sm:bg-gradient-to-r sm:from-background sm:via-background/85 sm:to-background/30" />
         </div>
 
-        <div className="container-x relative pt-16 pb-24 lg:pt-28 lg:pb-40">
+        <div className="container-x relative pt-10 pb-20 sm:pt-16 sm:pb-24 lg:pt-28 lg:pb-40">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="max-w-2xl"
           >
-            <span className="inline-flex items-center gap-2 rounded-full bg-brand-soft text-brand px-3 py-1 text-xs font-medium tracking-wide">
+            <span className="inline-flex items-center gap-2 rounded-full bg-brand-soft text-brand px-3 py-1 text-[11px] sm:text-xs font-medium tracking-wide">
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />
               German-engineered · Made in India
             </span>
-            <h1 className="mt-5 font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.02] text-balance">
+            <h1 className="mt-4 sm:mt-5 font-display text-[2.25rem] leading-[1.05] sm:text-5xl lg:text-7xl text-balance">
               Premium UPVC Windows for{" "}
               <span className="italic text-brand">Modern Homes</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground text-balance">
+            <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg text-muted-foreground text-balance">
               Custom-fabricated, precision-installed window systems that block
               the noise, hold the weather, and let in only the light you want.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
               <Link
                 to="/quote"
-                className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3.5 text-sm font-medium text-brand-foreground shadow-soft hover:shadow-glow hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 text-sm font-medium text-brand-foreground shadow-soft hover:shadow-glow hover:-translate-y-0.5 transition-all"
               >
                 Start Guided Quote <ArrowRight className="h-4 w-4" />
               </Link>
               <button
                 onClick={() => openQuote()}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 backdrop-blur px-6 py-3.5 text-sm font-medium hover:bg-card transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card/70 backdrop-blur px-6 py-3.5 text-sm font-medium hover:bg-card transition-colors"
               >
                 Quick quote
               </button>
             </div>
 
-            <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
+            <div className="mt-10 sm:mt-12 grid grid-cols-3 gap-4 sm:gap-6 max-w-md">
               {[
                 { k: "12,400+", v: "Installations" },
                 { k: "10 yr", v: "Warranty" },
                 { k: "4.9★", v: "Customer rating" },
               ].map((s) => (
                 <div key={s.v}>
-                  <div className="font-display text-2xl">{s.k}</div>
-                  <div className="text-xs text-muted-foreground">{s.v}</div>
+                  <div className="font-display text-xl sm:text-2xl">{s.k}</div>
+                  <div className="text-[11px] sm:text-xs text-muted-foreground">{s.v}</div>
                 </div>
               ))}
             </div>
