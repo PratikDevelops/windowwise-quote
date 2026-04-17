@@ -174,12 +174,12 @@ function ProductDetail() {
               </div>
             </div>
 
-            <div className="flex items-end justify-between pt-4 border-t border-border">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pt-4 border-t border-border">
               <div>
                 <div className="text-xs uppercase tracking-wider text-muted-foreground">
                   Estimated price
                 </div>
-                <div className="mt-1 font-display text-3xl">
+                <div className="mt-1 font-display text-2xl sm:text-3xl">
                   ₹ {formatINR(estimate)}
                 </div>
                 <div className="text-xs text-muted-foreground mt-0.5">
@@ -198,7 +198,7 @@ function ProductDetail() {
                     estimatedPrice: estimate,
                   })
                 }
-                className="inline-flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-foreground shadow-soft hover:shadow-glow transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-medium text-brand-foreground shadow-soft hover:shadow-glow transition-all"
               >
                 Request Quote
               </button>
