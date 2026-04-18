@@ -106,31 +106,60 @@ function HomePage() {
 
       {/* Features */}
       <section className="container-x py-16 sm:py-20 lg:py-28">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+        <div className="max-w-2xl mb-10 sm:mb-14">
+          <span className="text-xs uppercase tracking-[0.18em] text-brand">Engineered for living</span>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl text-balance">
+            Three things every Luminae window does, beautifully.
+          </h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {[
             {
               icon: Volume2,
               title: "Sound Insulation",
               body: "Multi-chamber profiles with acoustic glazing reduce outside noise by up to 38 dB.",
+              stat: "−38 dB",
+              label: "Noise reduction",
             },
             {
               icon: Zap,
               title: "Energy Efficiency",
               body: "Low-E coated double glazing keeps interiors cool — slashing AC load year-round.",
+              stat: "−30%",
+              label: "Cooling load",
             },
             {
               icon: CloudRain,
               title: "Weather Resistance",
               body: "Triple gasket sealing, UV-stable profiles. Engineered for monsoons and coastal winds.",
+              stat: "IP 65",
+              label: "Sealed rating",
             },
-          ].map((f) => (
-            <div key={f.title} className="bg-card p-6 sm:p-8 lg:p-10">
-              <div className="grid h-11 w-11 sm:h-12 sm:w-12 place-items-center rounded-xl bg-brand-soft text-brand">
-                <f.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+          ].map((f, i) => (
+            <motion.div
+              key={f.title}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
+              className="group relative rounded-2xl border border-border bg-card p-6 sm:p-8 hover:border-foreground/15 hover:shadow-card hover:-translate-y-0.5 transition-all overflow-hidden"
+            >
+              <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-brand-soft/60 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative flex items-start justify-between gap-4">
+                <div className="grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-2xl bg-brand-soft text-brand group-hover:bg-brand group-hover:text-brand-foreground transition-colors">
+                  <f.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                </div>
+                <div className="text-right">
+                  <div className="font-display text-xl sm:text-2xl text-brand leading-none">{f.stat}</div>
+                  <div className="mt-1 text-[10px] sm:text-[11px] uppercase tracking-wider text-muted-foreground">{f.label}</div>
+                </div>
               </div>
-              <h3 className="mt-4 sm:mt-5 font-display text-xl sm:text-2xl">{f.title}</h3>
-              <p className="mt-2 text-sm sm:text-base text-muted-foreground">{f.body}</p>
-            </div>
+              <h3 className="relative mt-6 sm:mt-8 font-display text-xl sm:text-2xl">{f.title}</h3>
+              <p className="relative mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">{f.body}</p>
+              <div className="relative mt-6 pt-4 border-t border-border/70 flex items-center text-xs font-medium text-muted-foreground group-hover:text-brand transition-colors">
+                Learn more <ArrowRight className="ml-1.5 h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -219,18 +248,27 @@ function HomePage() {
               with the same obsession a watchmaker brings to a movement.
             </p>
           </div>
-          <div className="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+          <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {[
-              { k: "5-chamber", v: "Profile system", b: "Superior insulation, structural rigidity." },
-              { k: "Ø 1.5mm", v: "Steel reinforcement", b: "Galvanised core in every sash and frame." },
-              { k: "EPDM", v: "Triple gaskets", b: "Watertight seal, zero air leakage." },
-              { k: "Low-E", v: "Double glazing", b: "Reflects heat, lets in pure daylight." },
-            ].map((b) => (
-              <div key={b.v} className="bg-card p-6 sm:p-7 lg:p-8">
-                <div className="font-display text-2xl sm:text-3xl text-brand">{b.k}</div>
-                <div className="mt-1.5 text-sm font-medium text-foreground">{b.v}</div>
-                <div className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">{b.b}</div>
-              </div>
+              { k: "5-chamber", v: "Profile system", b: "Superior insulation, structural rigidity.", n: "01" },
+              { k: "Ø 1.5mm", v: "Steel reinforcement", b: "Galvanised core in every sash and frame.", n: "02" },
+              { k: "EPDM", v: "Triple gaskets", b: "Watertight seal, zero air leakage.", n: "03" },
+              { k: "Low-E", v: "Double glazing", b: "Reflects heat, lets in pure daylight.", n: "04" },
+            ].map((b, i) => (
+              <motion.div
+                key={b.v}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
+                className="group relative rounded-2xl bg-card border border-border p-6 sm:p-7 hover:border-brand/40 hover:shadow-card hover:-translate-y-0.5 transition-all overflow-hidden"
+              >
+                <div className="absolute top-4 right-5 font-display text-[11px] tracking-wider text-muted-foreground/60">{b.n}</div>
+                <div className="absolute left-0 top-0 h-full w-[3px] bg-brand/0 group-hover:bg-brand transition-colors" />
+                <div className="font-display text-2xl sm:text-3xl text-brand leading-tight">{b.k}</div>
+                <div className="mt-2 text-sm font-semibold text-foreground tracking-tight">{b.v}</div>
+                <div className="mt-2 text-xs sm:text-[13px] text-muted-foreground leading-relaxed">{b.b}</div>
+              </motion.div>
             ))}
           </div>
         </div>
