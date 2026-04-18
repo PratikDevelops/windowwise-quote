@@ -46,6 +46,8 @@ function HomePage() {
             alt="Modern interior with premium UPVC sliding windows"
             width={1920}
             height={1280}
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover"
           />
           {/* Stronger left-fade on mobile, softer on desktop for full-bleed feel */}
@@ -204,20 +206,31 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Partners marquee */}
-      <section className="border-y border-border bg-surface/60 py-10 sm:py-12">
+      {/* Key Benefits / Value Proposition */}
+      <section className="border-y border-border bg-surface/60 py-16 sm:py-20 lg:py-24">
         <div className="container-x">
-          <div className="text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-6">
-            Trusted by India's leading builders & architects
+          <div className="max-w-2xl">
+            <span className="text-xs uppercase tracking-[0.18em] text-brand">Why it matters</span>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl text-balance">
+              The difference is in the details you don't see.
+            </h2>
+            <p className="mt-4 text-base text-muted-foreground">
+              Every Luminae window is a system — engineered, fabricated and finished
+              with the same obsession a watchmaker brings to a movement.
+            </p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 sm:gap-x-14 gap-y-4 opacity-70">
-            {["Lodha", "Prestige", "Sobha", "Godrej", "Brigade", "DLF", "Oberoi"].map((n) => (
-              <span
-                key={n}
-                className="font-display text-xl sm:text-2xl tracking-tight text-foreground/70 hover:text-foreground transition-colors"
-              >
-                {n}
-              </span>
+          <div className="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+            {[
+              { k: "5-chamber", v: "Profile system", b: "Superior insulation, structural rigidity." },
+              { k: "Ø 1.5mm", v: "Steel reinforcement", b: "Galvanised core in every sash and frame." },
+              { k: "EPDM", v: "Triple gaskets", b: "Watertight seal, zero air leakage." },
+              { k: "Low-E", v: "Double glazing", b: "Reflects heat, lets in pure daylight." },
+            ].map((b) => (
+              <div key={b.v} className="bg-card p-6 sm:p-7 lg:p-8">
+                <div className="font-display text-2xl sm:text-3xl text-brand">{b.k}</div>
+                <div className="mt-1.5 text-sm font-medium text-foreground">{b.v}</div>
+                <div className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">{b.b}</div>
+              </div>
             ))}
           </div>
         </div>
