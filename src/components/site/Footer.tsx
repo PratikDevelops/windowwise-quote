@@ -61,10 +61,6 @@ export function Footer() {
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-              <span>224, Industrial Area, Phase 2, Bengaluru 560058</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
               <span>Studio 07, Lower Parel, Mumbai 400013</span>
             </li>
           </ul>
@@ -73,7 +69,7 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="container-x py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Luminae Windows Pvt. Ltd. All rights reserved.</p>
-          <p>Crafted with precision in Bengaluru.</p>
+          <p>Crafted with precision in Mumbai.</p>
         </div>
       </div>
     </footer>
