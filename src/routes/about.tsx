@@ -65,20 +65,38 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="container-x py-12 lg:py-20">
-        <span className="text-xs uppercase tracking-[0.18em] text-brand">How we work</span>
-        <h2 className="mt-2 font-display text-4xl sm:text-5xl">Our installation process</h2>
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((s, i) => (
-            <div key={s.title} className="relative rounded-2xl border border-border bg-card p-6">
-              <div className="absolute -top-3 left-6 rounded-full bg-brand text-brand-foreground text-xs font-medium px-2.5 py-1">
-                Step {i + 1}
+      <section className="container-x py-16 lg:py-24">
+        <div className="max-w-2xl">
+          <span className="text-xs uppercase tracking-[0.18em] text-brand">How we work</span>
+          <h2 className="mt-2 font-display text-4xl sm:text-5xl text-balance">
+            Our installation process
+          </h2>
+          <p className="mt-4 text-base text-muted-foreground">
+            A clear, four-step rhythm — from your first call to the final clean-up.
+            No surprises, no delays, no shortcuts.
+          </p>
+        </div>
+        <div className="mt-12 sm:mt-14 relative">
+          <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 relative">
+            {steps.map((s, i) => (
+              <div
+                key={s.title}
+                className="group relative rounded-2xl border border-border bg-card p-6 sm:p-7 hover:shadow-card hover:border-foreground/15 hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-brand group-hover:bg-brand group-hover:text-brand-foreground transition-colors">
+                    <s.icon className="h-5 w-5" />
+                  </div>
+                  <span className="font-display text-3xl text-foreground/10 group-hover:text-brand/30 transition-colors">
+                    0{i + 1}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-display text-xl">{s.title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{s.body}</p>
               </div>
-              <s.icon className="h-6 w-6 text-brand mt-3" />
-              <h3 className="mt-4 font-display text-xl">{s.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{s.body}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

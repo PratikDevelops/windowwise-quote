@@ -97,10 +97,7 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
                   Tell us about your project
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Get a tailored quotation within 24 hours. No obligation. Prefer a guided flow?{" "}
-                  <a href="/quote" className="text-brand underline underline-offset-2">
-                    Try our quote wizard →
-                  </a>
+                  Get a tailored quotation within 24 hours. No obligation.
                 </p>
 
                 {(config.productName || config.width) && (
