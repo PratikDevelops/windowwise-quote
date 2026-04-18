@@ -3,8 +3,22 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Product } from "@/data/products";
 import { formatINR } from "@/data/products";
+import { useQuote } from "@/components/site/QuoteProvider";
 
 export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
+  const { openQuote } = useQuote();
+
+  const handleQuote = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    openQuote({
+      productName: product.name,
+      type: product.typeLabel,
+      color: product.colors[0],
+      estimatedPrice: product.startingFrom,
+    });
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -15,34 +29,45 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
       <Link
         to="/products/$slug"
         params={{ slug: product.slug }}
-        className="group block rounded-2xl bg-card border border-border overflow-hidden hover:shadow-card transition-all duration-300 hover:-translate-y-1"
+        className="group block rounded-2xl bg-card border border-border overflow-hidden hover:shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:border-foreground/20"
       >
-        <div className="aspect-[4/3] overflow-hidden bg-surface">
+        <div className="aspect-[4/3] overflow-hidden bg-surface relative">
           <img
             src={product.image}
             alt={product.name}
             loading="lazy"
             width={1024}
             height={768}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
-        <div className="p-5">
+        <div className="p-5 sm:p-6">
           <div className="flex items-center justify-between gap-3">
-            <span className="text-[11px] uppercase tracking-[0.16em] text-brand">
+            <span className="text-[11px] uppercase tracking-[0.18em] text-brand font-medium">
               {product.typeLabel}
             </span>
             <span className="text-xs text-muted-foreground">
               from ₹{formatINR(product.startingFrom)}
             </span>
           </div>
-          <h3 className="mt-2 font-display text-xl">{product.name}</h3>
-          <p className="mt-1 text-sm text-muted-foreground line-clamp-1">
+          <h3 className="mt-2.5 font-display text-xl sm:text-[1.4rem] leading-tight">
+            {product.name}
+          </h3>
+          <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2 min-h-[2.5rem]">
             {product.shortSpec}
           </p>
-          <div className="mt-4 flex items-center justify-between">
-            <span className="text-sm font-medium">Customize &amp; quote</span>
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-surface group-hover:bg-brand group-hover:text-brand-foreground transition-colors">
+          <div className="mt-5 flex items-center gap-2">
+            <button
+              onClick={handleQuote}
+              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-foreground text-background px-4 py-2.5 text-xs sm:text-sm font-medium hover:bg-brand transition-colors"
+            >
+              Get Quote
+            </button>
+            <span
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-surface group-hover:bg-brand group-hover:text-brand-foreground transition-colors"
+              aria-label="View details"
+            >
               <ArrowUpRight className="h-4 w-4" />
             </span>
           </div>
@@ -56,10 +81,11 @@ export function ProductCardSkeleton() {
   return (
     <div className="rounded-2xl bg-card border border-border overflow-hidden">
       <div className="aspect-[4/3] bg-surface animate-pulse" />
-      <div className="p-5 space-y-3">
+      <div className="p-5 sm:p-6 space-y-3">
         <div className="h-3 w-20 bg-surface rounded animate-pulse" />
         <div className="h-5 w-2/3 bg-surface rounded animate-pulse" />
         <div className="h-3 w-full bg-surface rounded animate-pulse" />
+        <div className="h-10 w-full bg-surface rounded-full animate-pulse mt-4" />
       </div>
     </div>
   );

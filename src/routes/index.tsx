@@ -8,6 +8,10 @@ import {
   ShieldCheck,
   Star,
   Award,
+  Ruler,
+  Hammer,
+  PencilRuler,
+  PackageCheck,
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import { products } from "@/data/products";
