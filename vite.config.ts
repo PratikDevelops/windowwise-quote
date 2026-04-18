@@ -1,14 +1,18 @@
 import { defineConfig } from 'vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
-import path from "path" // <-- Add this
+import path from "path"
 
 export default defineConfig({
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"), // <-- This tells Vercel what @ means
+      "@": path.resolve(__dirname, "./src"),
     },
   },
   plugins: [
-    tanstackStart(),
+    tanstackStart({
+      deployment: {
+        preset: 'vercel', // <--- Add this magic line!
+      },
+    }),
   ],
 })
