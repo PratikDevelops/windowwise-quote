@@ -8,6 +8,10 @@ import {
   ShieldCheck,
   Star,
   Award,
+  Ruler,
+  Hammer,
+  PencilRuler,
+  PackageCheck,
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import { products } from "@/data/products";
@@ -152,8 +156,75 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Process */}
+      <section className="container-x py-16 sm:py-20 lg:py-28">
+        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-start">
+          <div className="lg:sticky lg:top-28">
+            <span className="text-xs uppercase tracking-[0.18em] text-brand">How it works</span>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl text-balance">
+              From measurement to install, one calm process.
+            </h2>
+            <p className="mt-4 text-base text-muted-foreground max-w-md">
+              No surprises. No site mess. Every Luminae project follows the
+              same four-step rhythm — refined over a decade of installations.
+            </p>
+            <Link
+              to="/about"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium hover:text-brand transition-colors"
+            >
+              Read our story <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <ol className="space-y-3">
+            {[
+              { icon: PencilRuler, n: "01", t: "Free site survey", b: "A specialist visits, measures every opening, and discusses configurations." },
+              { icon: Ruler, n: "02", t: "Custom design & quote", b: "We render your windows in 3D and send a transparent, itemised quotation." },
+              { icon: Hammer, n: "03", t: "Precision fabrication", b: "Profiles cut and welded in our ISO-certified Bengaluru facility, to the millimetre." },
+              { icon: PackageCheck, n: "04", t: "White-glove installation", b: "Trained technicians install, seal, and clean — leaving the site spotless." },
+            ].map((s) => (
+              <li
+                key={s.n}
+                className="group rounded-2xl border border-border bg-card p-5 sm:p-6 hover:shadow-card hover:border-foreground/15 transition-all"
+              >
+                <div className="flex items-start gap-4 sm:gap-5">
+                  <div className="grid h-12 w-12 sm:h-14 sm:w-14 shrink-0 place-items-center rounded-xl bg-brand-soft text-brand group-hover:bg-brand group-hover:text-brand-foreground transition-colors">
+                    <s.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-display text-sm text-muted-foreground">{s.n}</span>
+                      <h3 className="font-display text-lg sm:text-xl">{s.t}</h3>
+                    </div>
+                    <p className="mt-1.5 text-sm sm:text-[0.95rem] text-muted-foreground leading-relaxed">{s.b}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Partners marquee */}
+      <section className="border-y border-border bg-surface/60 py-10 sm:py-12">
+        <div className="container-x">
+          <div className="text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-6">
+            Trusted by India's leading builders & architects
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 sm:gap-x-14 gap-y-4 opacity-70">
+            {["Lodha", "Prestige", "Sobha", "Godrej", "Brigade", "DLF", "Oberoi"].map((n) => (
+              <span
+                key={n}
+                className="font-display text-xl sm:text-2xl tracking-tight text-foreground/70 hover:text-foreground transition-colors"
+              >
+                {n}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
-      <section className="bg-surface py-16 sm:py-20 lg:py-28 mt-8 sm:mt-12">
+      <section className="bg-surface py-16 sm:py-20 lg:py-28">
         <div className="container-x">
           <span className="text-xs uppercase tracking-[0.18em] text-brand">Loved by homeowners</span>
           <h2 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl max-w-2xl">
