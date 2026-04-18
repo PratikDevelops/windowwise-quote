@@ -31,16 +31,21 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Luminae — Premium UPVC Windows for Modern Homes" },
+      { title: "Luminae - Premium UPVC Windows for Modern Homes" },
       {
         name: "description",
         content:
           "German-engineered UPVC windows custom built for Indian homes. Sliding, casement, tilt & turn — energy efficient, sound insulated, weather resistant.",
       },
-      { property: "og:title", content: "Luminae — Premium UPVC Windows" },
-      { property: "og:description", content: "Custom UPVC windows. Get a free quote in 24 hours." },
+      { property: "og:title", content: "Luminae - Premium UPVC Windows for Modern Homes" },
+      { property: "og:description", content: "WindowWise Quote is a UPVC windows e-commerce and quotation website." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Luminae - Premium UPVC Windows for Modern Homes" },
+      { name: "description", content: "WindowWise Quote is a UPVC windows e-commerce and quotation website." },
+      { name: "twitter:description", content: "WindowWise Quote is a UPVC windows e-commerce and quotation website." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2cb06ab3-d83b-4d08-b667-46bb0e65c47e/id-preview-db11144f--eba9b247-bf10-4126-be0e-577787b69894.lovable.app-1776513516110.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2cb06ab3-d83b-4d08-b667-46bb0e65c47e/id-preview-db11144f--eba9b247-bf10-4126-be0e-577787b69894.lovable.app-1776513516110.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
