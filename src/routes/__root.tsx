@@ -1,8 +1,10 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
-import { Navbar } from "@/components/site/Navbar";
-import { Footer } from "@/components/site/Footer";
-import { QuoteProvider } from "@/components/site/QuoteProvider";
+
+// CHANGE THESE THREE LINES:
+import { Navbar } from "../components/site/Navbar";
+import { Footer } from "../components/site/Footer";
+import { QuoteProvider } from "../components/site/QuoteProvider";
 
 function NotFoundComponent() {
   return (
