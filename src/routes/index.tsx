@@ -248,18 +248,27 @@ function HomePage() {
               with the same obsession a watchmaker brings to a movement.
             </p>
           </div>
-          <div className="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+          <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {[
-              { k: "5-chamber", v: "Profile system", b: "Superior insulation, structural rigidity." },
-              { k: "Ø 1.5mm", v: "Steel reinforcement", b: "Galvanised core in every sash and frame." },
-              { k: "EPDM", v: "Triple gaskets", b: "Watertight seal, zero air leakage." },
-              { k: "Low-E", v: "Double glazing", b: "Reflects heat, lets in pure daylight." },
-            ].map((b) => (
-              <div key={b.v} className="bg-card p-6 sm:p-7 lg:p-8">
-                <div className="font-display text-2xl sm:text-3xl text-brand">{b.k}</div>
-                <div className="mt-1.5 text-sm font-medium text-foreground">{b.v}</div>
-                <div className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">{b.b}</div>
-              </div>
+              { k: "5-chamber", v: "Profile system", b: "Superior insulation, structural rigidity.", n: "01" },
+              { k: "Ø 1.5mm", v: "Steel reinforcement", b: "Galvanised core in every sash and frame.", n: "02" },
+              { k: "EPDM", v: "Triple gaskets", b: "Watertight seal, zero air leakage.", n: "03" },
+              { k: "Low-E", v: "Double glazing", b: "Reflects heat, lets in pure daylight.", n: "04" },
+            ].map((b, i) => (
+              <motion.div
+                key={b.v}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
+                className="group relative rounded-2xl bg-card border border-border p-6 sm:p-7 hover:border-brand/40 hover:shadow-card hover:-translate-y-0.5 transition-all overflow-hidden"
+              >
+                <div className="absolute top-4 right-5 font-display text-[11px] tracking-wider text-muted-foreground/60">{b.n}</div>
+                <div className="absolute left-0 top-0 h-full w-[3px] bg-brand/0 group-hover:bg-brand transition-colors" />
+                <div className="font-display text-2xl sm:text-3xl text-brand leading-tight">{b.k}</div>
+                <div className="mt-2 text-sm font-semibold text-foreground tracking-tight">{b.v}</div>
+                <div className="mt-2 text-xs sm:text-[13px] text-muted-foreground leading-relaxed">{b.b}</div>
+              </motion.div>
             ))}
           </div>
         </div>
